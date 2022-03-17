@@ -61,10 +61,10 @@ function generateMarkdown(data) {
   let licenseText;
   if (data.license) {
     licenseText = renderLicenseSection(data);
-    licenseHeader = `* [Testing Instructions](#testing)
+    licenseHeader = `* [Testing Instructions](#testing-instructions)
 * [License](#license)`;
   } else {
-    licenseHeader = `* [Testing Instructions](#testing)`;
+    licenseHeader = `* [Testing Instructions](#testing-instructions)`;
   }
   return `# ${data.title}
 
@@ -75,7 +75,7 @@ function generateMarkdown(data) {
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contribution Guidelines](#contribution)
+* [Contribution Guidelines](#contribution-guidelines)
 ${licenseHeader}
 * [Support](#support)
 

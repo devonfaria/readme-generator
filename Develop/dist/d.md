@@ -7,9 +7,9 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contribution Guidelines](#contribution)
-* [Testing Instructions](#testing)
-* [Licenses](#licenses)
+* [Contribution Guidelines](#contribution-guidelines)
+* [Testing Instructions](#testing-instructions)
+* [License](#license)
 * [Support](#support)
 
 ## Description
