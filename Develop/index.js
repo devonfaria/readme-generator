@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const markdown = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown');
+const fs = require('fs');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -64,7 +65,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  document.textContent = readme
+  fs.writeFile('./dist/readme.md', )
 }
 
 // TODO: Create a function to initialize app
@@ -75,7 +76,7 @@ function init() {
       console.log('Data license: ' + data.license);
       data.license = 'notMIT';
       console.log('Changed data: ' + data.license);
-      console.log(generateMarkdown(data));
+      generateMarkdown(data);
       console.log(readme);
     })
     .then (() => {

@@ -20,15 +20,15 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   switch (license) {
-    case 'apache': ; return;
-    case 'bsd3': ; return;
-    case 'bsd2': ; return;
-    case 'gpl': ; return;
-    case 'lgpl': ; return;
-    case 'mit': return 'mit license link';
-    case 'mozilla': ; return;
-    case 'cddl': ; return;
-    case 'ecl': ; return;
+    case 'apache': ; return `[Link to license agreement](https://opensource.org/licenses/Apache-2.0)`;
+    case 'bsd3': ; return `[Link to license agreement](https://opensource.org/licenses/BSD-3-Clause)`;
+    case 'bsd2': ; return `[Link to license agreement](https://opensource.org/licenses/BSD-2-Clause)`;
+    case 'gpl': ; return `[Link to license agreement](https://opensource.org/licenses/gpl-license)`;
+    case 'lgpl': ; return `[Link to license agreement](https://opensource.org/licenses/lgpl-license)`;
+    case 'mit': return `[Link to license agreement](https://opensource.org/licenses/MIT)`;
+    case 'mozilla': ; return `[Link to license agreement](https://opensource.org/licenses/MPL-2.0)`;
+    case 'cddl': ; return `[Link to license agreement](https://opensource.org/licenses/CDDL-1.0)`;
+    case 'ecl': ; return `[Link to license agreement](https://opensource.org/licenses/EPL-2.0)`;
     default: return '';
   }
 };
@@ -39,11 +39,11 @@ function renderLicenseSection(license) {
   const badgeText = renderLicenseBadge(license);
   const linkText = renderLicenseLink(license);
   if (license) {
-    return `
-    ${badgeText}\n
-    \n
-    ${linkText}\n
-    \n`
+    return `##License
+    
+    ${badgeText}
+    
+    ${linkText}`
   }
 };
 
@@ -51,48 +51,48 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let licenseText = renderLicenseSection(data.license);
-  return `
-  # ${data.title}\n
-  \n
-  [Link to Instructional Video](https://devonfaria.github.io/professional-portfolio/)\n
-  \n
-  ## Table of Contents\n
-  \n
-  * [Description](#description)\n
-  * [Installation](#installation)\n
-  * [Usage](#usage)\n
-  * [Contribution Guidelines](#contribution)\n
-  * [Testing Instructions](#testing)\n
-  * [Licenses](#licenses)\n
-  * [Support](#support)\n
-  \n
-  ## Description\n
-  \n
-  ${data.desc}\n
-  \n 
-  ## Installation\n
-  \n
-  ${data.install}\n
-  \n 
-  ## Usage\n
-  \n
-  ${data.usage}\n
-  \n 
-  ## Contribution Guidelines\n
-  \n
-  ${data.contr}\n
-  \n 
-  ## Testing Instructions\n
-  \n
-  ${data.test}\n
-  \n 
-  ## Licenses\n
-  \n
-  ${licenseText}\n
-  \n 
-  ## Support\n
-  \n
-  For additional help installing and running ${data.title}, please contact me at ${data.email}.\n
+  console.log();
+  return `# ${data.title}
+
+[Link to Instructional Video](https://devonfaria.github.io/professional-portfolio/)
+
+## Table of Contents
+
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribution Guidelines](#contribution)
+* [Testing Instructions](#testing)
+* [Licenses](#licenses)
+* [Support](#support)
+
+## Description
+
+${data.desc}
+ 
+## Installation
+
+${data.install}
+ 
+## Usage
+
+${data.usage}
+ 
+## Contribution Guidelines
+
+${data.contr}
+ 
+## Testing Instructions
+
+${data.test}
+ 
+## Licenses
+
+${licenseText}
+ 
+## Support
+
+For additional help installing and running ${data.title}, please contact me at ${data.email}.
 `;
 }
 
