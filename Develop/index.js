@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -36,7 +37,7 @@ const questions = [
   {
     type: 'rawlist',
     message: 'What is your user name?',
-    name: 'username',
+    name: 'license',
     choices: [
       'Apache License 2.0',
       'BSD 3-Clause "New" or "Revised" license',
@@ -63,9 +64,9 @@ const questions = [
 
 inquirer
   .prompt(questions)
-  .then (data) {
-    console.log('.then initiated')
-  };
+  .then ((data) =>
+    console.log('.then initiated', data)
+  );
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
