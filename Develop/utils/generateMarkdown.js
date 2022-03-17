@@ -66,7 +66,7 @@ function generateMarkdown(data) {
   }
   return `# ${data.title}
 
-[Link to Instructional Video](https://devonfaria.github.io/professional-portfolio/)
+[Link to deployed application](https://${data.username}.github.io/${data.repo}/)
 
 ## Table of Contents
 

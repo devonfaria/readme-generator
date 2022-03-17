@@ -7,6 +7,16 @@ const fs = require('fs');
 const questions = [
   {
     type: 'input',
+    message: 'What is your GitHub user name?',
+    name: 'username',
+  },
+  {
+    type: 'input',
+    message: "What is the CaSe SenSiTiVe name of your Github repository?",
+    name: 'repo',
+  },
+  {
+    type: 'input',
     message: "What is your project's title?",
     name: 'title',
   },
@@ -53,11 +63,6 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'What is your GitHub user name?',
-    name: 'username',
-  },
-  {
-    type: 'input',
     message: 'What is your developer email?',
     name: 'email',
   },
@@ -73,11 +78,7 @@ function init() {
   inquirer
   .prompt(questions)
     .then ((data) => {
-      console.log('Data license: ' + data.license);
-      data.license = 'notMIT';
-      console.log('Changed data: ' + data.license);
       generateMarkdown(data);
-      console.log(readme);
     })
     .then (() => {
       console.log('second then initiated');
