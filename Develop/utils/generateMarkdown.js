@@ -14,7 +14,7 @@ function renderLicenseBadge(license) {
     default: return '';
   }
 };
-}
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -25,35 +25,32 @@ function renderLicenseLink(license) {
     case 'bsd2': ; return;
     case 'gpl': ; return;
     case 'lgpl': ; return;
-    case 'mit': ; return;
+    case 'mit': return 'mit license link';
     case 'mozilla': ; return;
     case 'cddl': ; return;
     case 'ecl': ; return;
     default: return '';
   }
 };
-}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  switch (license) {
-    case 'apache': ; return;
-    case 'bsd3': ; return;
-    case 'bsd2': ; return;
-    case 'gpl': ; return;
-    case 'lgpl': ; return;
-    case 'mit': ; return;
-    case 'mozilla': ; return;
-    case 'cddl': ; return;
-    case 'ecl': ; return;
-    default: return '';
+  const badgeText = renderLicenseBadge(license);
+  const linkText = renderLicenseLink(license);
+  if (license) {
+    return `
+    ${badgeText}\n
+    \n
+    ${linkText}\n
+    \n`
   }
 };
 
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  let licenseText = renderLicenseSection(data.license);
   return `
   # ${data.title}\n
   \n
@@ -91,12 +88,26 @@ function generateMarkdown(data) {
   \n 
   ## Licenses\n
   \n
-  ${data.license}\n
+  ${licenseText}\n
   \n 
   ## Support\n
   \n
   For additional help installing and running ${data.title}, please contact me at ${data.email}.\n
 `;
 }
+
+let data = {
+  title: 'a',
+  desc: 'b',
+  install: 'c',
+  usage: 'd',
+  contr: 'e',
+  test: 'f',
+  license: 'mit',
+  username: 'g',
+  email: 'h',
+}
+
+console.log(generateMarkdown(data));
 
 module.exports = generateMarkdown;
