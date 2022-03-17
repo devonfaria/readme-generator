@@ -22,6 +22,11 @@ const questions = [
   },
   {
     type: 'input',
+    message: 'What would you like to name your markdown file?',
+    name: 'markdown',
+  },
+  {
+    type: 'input',
     message: "Provide a short description of your program's functionality",
     name: 'desc',
   },
@@ -59,6 +64,7 @@ const questions = [
       {name: 'Mozilla Public License 2.0', value: 'mozilla'},
       {name: 'Common Development and Distribution License', value: 'cddl'},
       {name: 'Eclipse Public License version 2.0', value: 'ecl'},
+      {name: 'none', value: ''},
     ]
   },
   {
@@ -69,23 +75,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile('./dist/readme.md', )
-}
+function writeToFile(fileName, text) {
+  fs.writeFile(`./dist/${fileName}.md`, text, (err) => {
+    err ? console.error(err) : console.log('Success!')
+  })
+};
+
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer
   .prompt(questions)
     .then ((data) => {
-      generateMarkdown(data);
-    })
-    .then (() => {
-      console.log('second then initiated');
-      writeToFile(readme)
+      const markdownText = generateMarkdown(data);
+      writeToFile(data.markdown, markdownText)
     })
     .catch((err) => {console.log(err)});
-}
+};
 
 // Function call to initialize app
 init();
