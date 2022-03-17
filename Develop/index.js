@@ -62,7 +62,6 @@ const questions = [
       {name: 'GNU Library or "Lesser" General Public License (LGPL)', value: 'lgpl'},
       {name: 'MIT license', value: 'mit'},
       {name: 'Mozilla Public License 2.0', value: 'mozilla'},
-      {name: 'Common Development and Distribution License', value: 'cddl'},
       {name: 'Eclipse Public License version 2.0', value: 'ecl'},
       {name: 'none', value: ''},
     ]

@@ -9,7 +9,6 @@ function renderLicenseBadge(license) {
     case 'lgpl': return '[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)';
     case 'mit': return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
     case 'mozilla': return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
-    case 'cddl': ; return;
     case 'ecl': return '[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)';
     default: return '';
   }
@@ -27,7 +26,6 @@ function renderLicenseLink(license) {
     case 'lgpl': return `[Link to license agreement](https://opensource.org/licenses/lgpl-license)`;
     case 'mit': return `[Link to license agreement](https://opensource.org/licenses/MIT)`;
     case 'mozilla': return `[Link to license agreement](https://opensource.org/licenses/MPL-2.0)`;
-    case 'cddl': return `[Link to license agreement](https://opensource.org/licenses/CDDL-1.0)`;
     case 'ecl': return `[Link to license agreement](https://opensource.org/licenses/EPL-2.0)`;
     default: return '';
   }
@@ -77,7 +75,7 @@ function generateMarkdown(data) {
 * [Usage](#usage)
 * [Contribution Guidelines](#contribution-guidelines)
 ${licenseHeader}
-* [Support](#support)
+* [Questions](#questions)
 
 ## Description
 
@@ -99,24 +97,10 @@ ${data.contr}
 
 ${licenseText}
  
-## Support
+## Questions
 
-For additional help installing and running ${data.title}, please contact me at ${data.email}.
+For additional help installing and running ${data.title}, please contact me at ${data.email}. You can also find me on Github. [Click here to visit my GitHub profile.](https://github.com/${data.username})
 `;
 }
-
-// let data = {
-//   title: 'a',
-//   desc: 'b',
-//   install: 'c',
-//   usage: 'd',
-//   contr: 'e',
-//   test: 'f',
-//   license: '',
-//   username: 'g',
-//   email: 'h',
-// }
-
-// console.log(generateMarkdown(data));
 
 module.exports = generateMarkdown;
