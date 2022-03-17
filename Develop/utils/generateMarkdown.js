@@ -1,6 +1,18 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  switch (license) {
+    case 'apache': ; return;
+    case 'bsd3': ; return;
+    case 'bsd2': ; return;
+    case 'gpl': ; return;
+    case 'lgpl': ; return;
+    case 'mit': ; return;
+    case 'mozilla': ; return;
+    case 'cddl': ; return;
+    case 'ecl': ; return;
+  }
+};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string

@@ -39,15 +39,15 @@ const questions = [
     message: 'What is your user name?',
     name: 'license',
     choices: [
-      'Apache License 2.0',
-      'BSD 3-Clause "New" or "Revised" license',
-      'BSD 2-Clause "Simplified" or "FreeBSD" license',
-      'GNU General Public License (GPL)',
-      'GNU Library or "Lesser" General Public License (LGPL)',
-      'MIT license',
-      'Mozilla Public License 2.0',
-      'Common Development and Distribution License',
-      'Eclipse Public License version 2.0',
+      {name: 'Apache License 2.0', value: 'apache'},
+      {name: 'BSD 3-Clause "New" or "Revised" license', value: 'bsd3'},
+      {name: 'BSD 2-Clause "Simplified" or "FreeBSD" license', value: 'bsd2'},
+      {name: 'GNU General Public License (GPL)', value: 'gpl'},
+      {name: 'GNU Library or "Lesser" General Public License (LGPL)', value: 'lgpl'},
+      {name: 'MIT license', value: 'mit'},
+      {name: 'Mozilla Public License 2.0', value: 'mozilla'},
+      {name: 'Common Development and Distribution License', value: 'cddl'},
+      {name: 'Eclipse Public License version 2.0', value: 'ecl'},
     ]
   },
   {
@@ -61,17 +61,26 @@ const questions = [
     name: 'email',
   },
 ];
-// Intiates Inquirer in the terminal
+// Intiates Inquirer in the terminal, returns error to console upon occurence
 inquirer
   .prompt(questions)
     .then ((data) => {
-      console.log('.then initiated', data);
+      console.log('Data license: ' + data.license);
+      data.license = 'notMIT';
+      console.log('Changed data: ' + data.license);
       let readme = generateMarkdown(data);
       console.log(readme);
-    });
+    })
+    .then (() => {
+      console.log('second then initiated');
+      writeToFile(readme)
+    })
+    .catch((err) => {console.log(err)});
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  document.textContent = readme
+}
 
 // TODO: Create a function to initialize app
 function init() {}
