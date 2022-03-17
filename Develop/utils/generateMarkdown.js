@@ -36,14 +36,19 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  const badgeText = renderLicenseBadge(license);
-  const linkText = renderLicenseLink(license);
   if (license) {
-    return `##License
+    const badgeText = renderLicenseBadge(license);
+    const linkText = renderLicenseLink(license);
+    return `${data.test}
     
-    ${badgeText}
+##License
     
-    ${linkText}`
+${badgeText}
+    
+${linkText}`
+  } else {
+    return `${data.test}
+    `
   }
 };
 
@@ -51,7 +56,14 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let licenseText = renderLicenseSection(data.license);
-  console.log();
+  let licenseHeader;
+  if (data.license) {
+    let licenseText = renderLicenseSection(data.license);
+    licenseHeader = `* [Testing Instructions](#testing)
+* [Licenses](#licenses)`;
+  } else {
+    licenseHeader = `* [Testing Instructions](#testing)`;
+  }
   return `# ${data.title}
 
 [Link to Instructional Video](https://devonfaria.github.io/professional-portfolio/)
@@ -62,8 +74,7 @@ function generateMarkdown(data) {
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contribution Guidelines](#contribution)
-* [Testing Instructions](#testing)
-* [Licenses](#licenses)
+${licenseHeader}
 * [Support](#support)
 
 ## Description
@@ -84,10 +95,6 @@ ${data.contr}
  
 ## Testing Instructions
 
-${data.test}
- 
-## Licenses
-
 ${licenseText}
  
 ## Support
@@ -103,7 +110,7 @@ let data = {
   usage: 'd',
   contr: 'e',
   test: 'f',
-  license: 'mit',
+  license: '',
   username: 'g',
   email: 'h',
 }

@@ -48,7 +48,7 @@ const questions = [
       {name: 'MIT license', value: 'mit'},
       {name: 'Mozilla Public License 2.0', value: 'mozilla'},
       {name: 'Common Development and Distribution License', value: 'cddl'},
-      {name: 'Eclipse Public License version 1.0', value: 'ecl'},
+      {name: 'Eclipse Public License version 2.0', value: 'ecl'},
     ]
   },
   {
