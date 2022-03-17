@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown')
+const markdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -47,7 +47,7 @@ const questions = [
       {name: 'MIT license', value: 'mit'},
       {name: 'Mozilla Public License 2.0', value: 'mozilla'},
       {name: 'Common Development and Distribution License', value: 'cddl'},
-      {name: 'Eclipse Public License version 2.0', value: 'ecl'},
+      {name: 'Eclipse Public License version 1.0', value: 'ecl'},
     ]
   },
   {
@@ -61,21 +61,6 @@ const questions = [
     name: 'email',
   },
 ];
-// Intiates Inquirer in the terminal, returns error to console upon occurence
-inquirer
-  .prompt(questions)
-    .then ((data) => {
-      console.log('Data license: ' + data.license);
-      data.license = 'notMIT';
-      console.log('Changed data: ' + data.license);
-      let readme = generateMarkdown(data);
-      console.log(readme);
-    })
-    .then (() => {
-      console.log('second then initiated');
-      writeToFile(readme)
-    })
-    .catch((err) => {console.log(err)});
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -83,7 +68,22 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+  .prompt(questions)
+    .then ((data) => {
+      console.log('Data license: ' + data.license);
+      data.license = 'notMIT';
+      console.log('Changed data: ' + data.license);
+      console.log(generateMarkdown(data));
+      console.log(readme);
+    })
+    .then (() => {
+      console.log('second then initiated');
+      writeToFile(readme)
+    })
+    .catch((err) => {console.log(err)});
+}
 
 // Function call to initialize app
 init();
