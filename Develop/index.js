@@ -61,12 +61,14 @@ const questions = [
     name: 'email',
   },
 ];
-
+// Intiates Inquirer in the terminal
 inquirer
   .prompt(questions)
-  .then ((data) =>
-    console.log('.then initiated', data)
-  );
+    .then ((data) => {
+      console.log('.then initiated', data);
+      let readme = generateMarkdown(data);
+      console.log(readme);
+    });
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
