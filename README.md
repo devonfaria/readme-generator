@@ -1,4 +1,4 @@
-# ReadMe Generator - Devon Faria
+# ReadMe Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
@@ -36,7 +36,7 @@ If lyrics are not found upon initial search, then the following inamge will be d
 
 ## Installation
 
-[CLick here for a video explaining installation](https://devonfaria.github.io/traxx/)
+[Click here for a video explaining installation](https://devonfaria.github.io/traxx/)
 
 To enjoy this application, you will need to install Node JS on your local computer. [Click here for links to download Node JS.](https://nodejs.org/en/download/)
 
@@ -68,4 +68,4 @@ Devon Faria
 
 ## Contributions
 
-A huge thank you to Anthony Cooper, Sasha Peters, and Andy our guest TA for providing useful solutions to some of our variable scoping issues and CORS errors. This project would not have been possible without them. 
+A huge thank you to Anthony Cooper and Sasha Peters for workshopping problems with me during the creation of this application. 

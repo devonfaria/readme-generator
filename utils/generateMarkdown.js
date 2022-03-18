@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// If there is a license chosen, this function will insert a badge to the license's page in the Browser
 function renderLicenseBadge(license) {
   switch (license) {
     case 'apache': return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
@@ -15,8 +14,7 @@ function renderLicenseBadge(license) {
 };
 
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// If there is a license chosen, this function will insert a link in the License section to the license webpage
 function renderLicenseLink(license) {
   switch (license) {
     case 'apache': return `[Link to license agreement](https://opensource.org/licenses/Apache-2.0)`;
@@ -31,8 +29,7 @@ function renderLicenseLink(license) {
   }
 };
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// This function will render the License section of the markdown file if a license is chosen, or remove all license sections if no license
 function renderLicenseSection(data) {
   if (data.license !== '') {
     const badgeText = renderLicenseBadge(data.license);
@@ -53,7 +50,7 @@ ${linkText}`
 };
 
 
-// TODO: Create a function to generate markdown for README
+// This function uses the data input into object created by the user responses to fill in a professional markdown file, with template literals to display that information. Generates the license section if a license is chosen.  
 function generateMarkdown(data) {
   let licenseHeader;
   let licenseText;
@@ -102,5 +99,5 @@ ${licenseText}
 For additional help installing and running ${data.title}, please contact me at ${data.email}. You can also find me on Github. [Click here to visit my GitHub profile.](https://github.com/${data.username})
 `;
 }
-
+// Exports the generateMarkdown function to the index.js file
 module.exports = generateMarkdown;
