@@ -52,7 +52,7 @@ const questions = [
   },
   {
     type: 'rawlist',
-    message: 'What is your user name?',
+    message: 'What license, if any, are you using for this project?',
     name: 'license',
     choices: [
       {name: 'Apache License 2.0', value: 'apache'},
